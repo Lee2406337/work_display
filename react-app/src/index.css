@@ -1,0 +1,769 @@
+/* =========================
+   Base
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Microsoft JhengHei", sans-serif;
+  color: #0f172a;
+}
+
+a {
+  color: inherit;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid rgba(15, 23, 42, 0.18);
+  border-radius: 10px;
+  padding: 8px 10px;
+  outline: none;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(15, 23, 42, 0.65);
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+button,
+input[type="submit"] {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  background: rgba(15, 23, 42, 0.92);
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  filter: brightness(1.05);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.small {
+  color: rgba(15, 23, 42, 0.7);
+  font-size: 12px;
+}
+
+/* =========================
+   Frontend Layout
+   前台樣式
+========================= */
+
+.front-body {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)),
+    #ffffff;
+  background-attachment: fixed;
+}
+
+.front-page {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 42px 0;
+}
+
+.front-page-wide {
+  width: min(1500px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 42px 0;
+}
+
+.front-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 24px 0;
+  padding: 14px 22px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  border-radius: 12px;
+  width: fit-content;
+  box-shadow: none;
+}
+
+.front-title span {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.front-box {
+  margin: 0 0 24px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #0f172a;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.front-header-box {
+  padding-top: 14px;
+}
+
+.front-main-box {
+  margin-top: 0;
+}
+
+.front-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* 前台小膠囊按鈕 */
+.front-pill,
+.nav-btn,
+.user-btn {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.85);
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.18);
+  cursor: pointer;
+  transition: filter 0.1s ease-in-out, transform 0.05s ease-in-out;
+}
+
+.front-pill:hover,
+.nav-btn:hover,
+.user-btn:hover {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
+}
+
+.front-pill:active,
+.nav-btn:active,
+.user-btn:active {
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
+
+.front-user-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.front-user-bar p {
+  margin: 8px 0;
+}
+
+/* 前台主選單 */
+.front-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.front-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  padding: 25px 16px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #fff;
+
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 25px;
+
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+  transition: transform 0.05s ease-in-out, filter 0.1s ease-in-out;
+}
+
+.front-menu a:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.front-menu a:active {
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
+
+/* 前台表單 */
+.front-form {
+  display: grid;
+  gap: 12px;
+}
+
+.front-form-row {
+  display: grid;
+  gap: 6px;
+}
+
+.front-form input,
+.front-form select,
+.front-form textarea {
+  width: min(720px, 100%);
+}
+
+.front-body input,
+.front-body select,
+.front-body textarea,
+.login-page input,
+.login-page select,
+.login-page textarea {
+  background: #fff;
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.18);
+}
+
+.front-body button,
+.login-page button {
+  background: rgba(15, 23, 42, 0.92);
+  color: #fff;
+}
+
+.front-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* 前台 Tabs */
+.front-tabs {
+  margin-top: 12px;
+  margin-bottom: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.front-tabs button {
+  background: rgba(255, 255, 255, 0.8);
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.front-tabs button.active {
+  background: rgba(15, 23, 42, 0.92);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* 前台篩選區 */
+.front-filter-card {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #0f172a;
+}
+
+.front-filter-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.front-field {
+  display: grid;
+  gap: 6px;
+}
+
+/* 前台表格 */
+.front-table-wrap {
+  overflow-x: auto;
+}
+
+.front-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.front-table th,
+.front-table td {
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  padding: 10px 12px;
+  vertical-align: top;
+}
+
+.front-table thead th {
+  background: rgba(15, 23, 42, 0.92);
+  color: #fff;
+  font-weight: 700;
+}
+
+.front-table tbody tr:nth-child(even) td {
+  background: rgba(15, 23, 42, 0.03);
+}
+
+/* =========================
+   Login
+========================= */
+
+.login-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)),
+    #ffffff;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-title {
+  margin: 0 0 30px 0;
+}
+
+.login-box {
+  width: min(520px, calc(100% - 48px));
+  margin: 0;
+}
+
+.login-box input {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 18px;
+  padding: 12px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+}
+
+.caps-warning {
+  margin-left: 8px;
+  font-size: 10px;
+  color: #c22400;
+  background: rgba(176, 0, 32, 0.08);
+  border: 1px solid rgba(255, 0, 0, 0.25);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* =========================
+   Backend Layout
+   後台樣式
+========================= */
+
+.admin-body {
+  min-height: 100vh;
+  background: #0b1220;
+  color: #e5e7eb;
+}
+
+.admin-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-topbar-title {
+  font-weight: 800;
+}
+
+.admin-topbar-right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.admin-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 22px;
+}
+
+.admin-wrap-wide {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 22px;
+}
+
+.admin-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.admin-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-btn,
+.admin-link-btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #e5e7eb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.admin-btn:hover,
+.admin-link-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  filter: none;
+}
+
+.admin-muted {
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.admin-grid-item {
+  display: block;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #e5e7eb;
+  text-decoration: none;
+}
+
+.admin-grid-item:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.admin-grid-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+/* 後台篩選 */
+.admin-filter-card {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.admin-filter-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.admin-field {
+  display: grid;
+  gap: 6px;
+}
+
+.admin-field label {
+  color: #cbd5e1;
+}
+
+.admin-field input,
+.admin-field select,
+.admin-field textarea,
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #e5e7eb;
+}
+
+.admin-field input:focus,
+.admin-field select:focus,
+.admin-field textarea:focus,
+.admin-form input:focus,
+.admin-form select:focus,
+.admin-form textarea:focus {
+  border-color: rgba(203, 213, 225, 0.75);
+  box-shadow: 0 0 0 3px rgba(203, 213, 225, 0.08);
+}
+
+.admin-field select option,
+.admin-form select option {
+  color: #111827;
+  background: #ffffff;
+}
+
+/* 後台表單 */
+.admin-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.admin-form label {
+  color: #cbd5e1;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+  width: min(760px, 100%);
+}
+
+/* 後台表格 */
+.admin-table-wrap {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  vertical-align: top;
+}
+
+.admin-table th {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  letter-spacing: 0.06em;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.admin-table td {
+  color: #e5e7eb;
+}
+
+.admin-table a {
+  color: #e5e7eb;
+}
+
+.admin-table button {
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #e5e7eb;
+}
+
+.admin-table select {
+  border-radius: 10px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #e5e7eb;
+}
+
+.admin-table select option {
+  color: #111827;
+  background: #ffffff;
+}
+
+.admin-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.admin-msg,
+.admin-message {
+  color: #34d399;
+  font-weight: 700;
+}
+
+.admin-err,
+.admin-error {
+  color: #fb7185;
+  font-weight: 700;
+}
+
+/* =========================
+   Shared Messages
+========================= */
+
+.msg,
+.message {
+  color: #0b7a2a;
+  font-weight: 600;
+  margin: 8px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(11, 122, 42, 0.08);
+  border: 1px solid rgba(11, 122, 42, 0.25);
+}
+
+.err,
+.error {
+  color: #b00020;
+  font-weight: 600;
+  margin: 8px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(176, 0, 32, 0.08);
+  border: 1px solid rgba(176, 0, 32, 0.25);
+}
+
+/* =========================
+   Old class compatibility
+   舊 class 兼容，避免部分頁面還沒改完時破版
+========================= */
+
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 24px 0;
+  padding: 14px 22px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.page-title span {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.box {
+  margin: 0 0 24px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #0f172a;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.menu a.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  padding: 25px 16px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #fff;
+
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 25px;
+}
+
+/* =========================
+   RWD
+========================= */
+
+@media (max-width: 760px) {
+  .front-title span,
+  .page-title span {
+    font-size: 24px;
+  }
+
+  .front-page,
+  .front-page-wide {
+    width: min(100% - 24px, 1180px);
+    padding: 24px 0;
+  }
+
+  .front-menu a,
+  .menu a.btn {
+    font-size: 20px;
+  }
+
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-wrap,
+  .admin-wrap-wide {
+    padding: 14px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+}
