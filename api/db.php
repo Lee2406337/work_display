@@ -1,9 +1,9 @@
 <?php
-$host = "sql111.infinityfree.com";
-$port = 3306;
-$db   = "if0_42032195_webp2026";
-$user = "if0_42032195";
-$pass = "f6Zaxfxmussb";
+$host = "....";
+$port = ....;
+$db   = "....";
+$user = "....";
+$pass = "....";
 $charset = "utf8mb4";
 
 $dsn = "mysql:host={$host};port={$port};dbname={$db};charset={$charset}";
