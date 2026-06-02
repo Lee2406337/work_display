@@ -14,7 +14,7 @@ error_log
 # =========================
 # Database / sensitive config
 # =========================
-db.php
+#db.php
 
 # 環境變數檔
 .env
